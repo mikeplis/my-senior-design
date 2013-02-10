@@ -1,0 +1,57 @@
+opportunity network
+
+n (pg 5) - number of banks in network
+t (5) - time
+k (5) - bank's endowment of capital
+k_ij (6) - amount of capital that bank j can borrow from bank i
+z_i (6) - random, short-term return of a project invested in by bank i
+A (6) - fixed, non-pledgeable long-term return of project
+zeta * A (6) - bank's return if the project is liquidated. zeta is nearly equal to 0
+v (6) - magntiude of senior outside obligations of a bank (* would v_i make more sense?)
+
+debt contracts
+
+l_ij (6) - amount of capital borrowed by bank j from bank i
+R_ij (6) - interest rate on capital borrowed by bank j from bank i
+y_ij (6) - face value of bank j's debt to bank i. equal to:
+	R_ij * l_ij
+	**weight assigned to edge between bank i and bank j in graph
+y_i (6) - total debts of bank i to other banks. equal to:
+	sum(y_ji | j!=i)
+y_i + v (6) = total debts of bank i at t = 1
+gamma (in gamma-convex combination) (8) - face value of j's obligations to i. equal to:
+	(gamma)(y_ij) + (1-gamma)(~y_ij)
+	measure of degree of density of connections in a network
+
+payment equilibrium
+
+x_js (8) - repayment by bank s on its debt to bank j at t = 1
+	lies somewhere between 0 and y_js
+c_j (8) - cash hoarded by bank j. equal to:
+	k - sum(l_ji | i!=j)
+alpha_j (8) - total cash flow of bank j. equal to:
+	c_j + z_j + sum(x_js | s!=j)
+e_j (8) - available cash a bank has to pay off its junior obligations to other banks. equal to:
+	c_j + z_j - v
+x_ij (8) - payment of bank j to a creditor bank i at t = 1. equal to:
+	y_ij/y_j * [min(yj, e_j + sum(x_js | s!=j))]+
+T_i (9) - transfer from bank i to senior creditors. must be <= v
+pi_i (9) - bank's profit
+pi_0 (9) - net return to outside financiers
+u (9) - utilitarian social surplus in the economy, sum of returns to all agents. equal to:
+	pi_0 + sum(pi_i + T_i | from 1-n)
+
+financial contagion. assuming: regular networks, no liabilities to outside financiers, same interest rate of all interbank loans
+
+R (10) - interest rate of all interbank loans
+y (10) - total interbank claims and liabilities. equal to:
+	y = Rk
+a (10) - return of project in "business as usual" regime. must be > v. 
+epsilon (10) - magnitude of negative shock to the project's returns. element of (a - v, a)
+z_i (10) - short-term returns on bank's investment. can only take two values: a or a - epsilon
+m (10) - number of negative shocks
+u (10) - social surplus of economy. equal to:
+	(n - #defaults)A + (n)(a) - (m)(epsilon)
+epsilon* (11) - critical threshold of the magnitude of a financial shock. equal to:
+	n(a - v)
+delta (in delta-component) - i) total obligations of banks outside M (subset of N) toany bank in M is at most delta. ii) total obligations of banks inside M to any bank outside M is at most delta.
