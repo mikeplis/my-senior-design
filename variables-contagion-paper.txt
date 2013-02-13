@@ -54,4 +54,6 @@ u (10) - social surplus of economy. equal to:
 	(n - #defaults)A + (n)(a) - (m)(epsilon)
 epsilon* (11) - critical threshold of the magnitude of a financial shock. equal to:
 	n(a - v)
-delta (in delta-component) - i) total obligations of banks outside M (subset of N) toany bank in M is at most delta. ii) total obligations of banks inside M to any bank outside M is at most delta.
+delta (in delta-component) - two conditions:
+	i) total obligations of banks outside M (subset of N) toany bank in M is at most delta. 
+	ii) total obligations of banks inside M to any bank outside M is at most delta.
